@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Details</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><a href="/">📚 Virtual Bookstore</a></div>
+    <div class="actions">
+      <span id="userEmail"></span>
+      <a href="/login.html" id="loginLink">Login</a>
+      <a href="/signup.html" id="signupLink">Signup</a>
+      <a href="#" id="logoutLink" style="display:none;">Logout</a>
+      <a href="/cart.html" class="cart-link">🛒 Cart (<span id="cartCount">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="bookDetail" class="detail-card"></div>
+  </main>
+
+  <script src="/script.js"></script>
+  
+  <script>
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+
+    async function init() {
+      updateAuthUI();
+      await loadCartCount();
+
+      if (!id) {
+        document.getElementById("bookDetail").innerHTML = "<p>Book id not provided.</p>";
+        return;
+      }
+      await loadBookDetails(id);
+    }
+
+    async function loadBookDetails(bookId) {
+      try {
+        const res = await fetch(`${API_BASE}/books/${bookId}`);
+        if (!res.ok) throw new Error("Book not found");
+        const b = await res.json();
+        renderDetail(b);
+      } catch (err) {
+        document.getElementById("bookDetail").innerHTML = `<p>Error fetching book: ${err.message}</p>`;
+      }
+    }
+
+    function renderDetail(b) {
+      document.getElementById("bookDetail").innerHTML = `
+        <div class="book-detail-grid">
+          <div class="img-placeholder">📕</div>
+          <div>
+            <h2>${escapeHtml(b.title)}</h2>
+            <p class="muted">by ${escapeHtml(b.author)}</p>
+            <p class="price">₹${b.price.toFixed(2)}</p>
+            <p><strong>In Stock:</strong> ${b.quantity ?? "—"}</p>
+            <p class="desc">${escapeHtml(b.description ?? "")}</p>
+            <div class="detail-actions">
+              <button onclick="addToCart(${b.id})" ${b.quantity === 0 ? "disabled" : ""}>Add to Cart</button>
+              <button onclick="buyNow(${b.id})" ${b.quantity === 0 ? "disabled" : ""}>Buy Now</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    window.buyNow = async function buyNow(id) {
+      if (!isLoggedIn()) {
+        alert("Please login before purchasing.");
+        location.href = "/login.html";
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API_BASE}/books/buy/${id}`, {
+          method: "PUT",
+          headers: {
+            "Authorization": "Bearer " + getToken()
+          }
+        });
+
+        const text = await res.text().catch(() => res.statusText);
+        if (res.ok) {
+          alert(text || "Purchase successful");
+          await loadBookDetails(id);
+          await loadCartCount();
+        } else {
+          alert(text || "Purchase failed");
+        }
+      } catch (error) {
+        console.error("Error during purchase:", error);
+        alert("Something went wrong while buying the book.");
+      }
+    };
+
+    init();
+  </script>
+</body>
+</html>

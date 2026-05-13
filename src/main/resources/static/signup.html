@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Signup — Virtual Bookstore</title>
+  <style>
+    /* --- Reset & Base Styles --- */
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #f7f7f7, #e6e9f0);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* --- Topbar --- */
+    .topbar {
+		background: linear-gradient(90deg, #4a148c, #7b1fa2);
+		 color: #fff;
+		 padding: 14px 28px;
+		 display: flex;
+		 align-items: center;
+		 justify-content: space-between;
+		 box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+		 position: sticky;
+		 top: 0;
+		 z-index: 100;
+    }
+    .brand a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.2rem;
+	  
+    }
+	.brand a:hover {
+			     color: #ffde59;
+			   }
+
+    /* --- Main Container --- */
+    .container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* --- Card --- */
+    .signup-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .signup-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .signup-card h1 {
+      margin-bottom: 1.5rem;
+      color: #4a148c;
+    }
+
+    /* --- Input Fields --- */
+    .signup-card input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+    .signup-card input:focus {
+      border-color: #4a148c;
+      box-shadow: 0 0 5px rgba(74, 20, 140, 0.3);
+      outline: none;
+    }
+
+    /* --- Button --- */
+    .signup-card button {
+      width: 100%;
+      background: #4a148c;
+      color: #fff;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .signup-card button:hover {
+      background: #6a1b9a;
+      transform: scale(1.03);
+    }
+
+    /* --- Login Link --- */
+    .signup-card p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .signup-card a {
+      color: #4a148c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .signup-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 500px) {
+      .signup-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><a href="/">📚 Virtual Bookstore</a></div>
+  </header>
+
+  <main class="container">
+    <div class="signup-card">
+      <h1>Create Your Account</h1>
+      <form id="signupForm">
+        <input type="text" id="name" placeholder="Full name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="/login.html">Login</a></p>
+    </div>
+  </main>
+
+  <script>
+    const API_BASE = "http://localhost:8080"; // Example base URL
+
+    document.getElementById('signupForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      try {
+        const res = await fetch(`${API_BASE}/users/signup`, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ name, email, password })
+        });
+
+        const text = await res.text();
+        alert(text);
+
+        if (text.toLowerCase().includes('successful')) {
+          localStorage.setItem('vb_user', JSON.stringify({ email, name }));
+          location.href = '/';
+        }
+      } catch (err) {
+        alert('Signup error: ' + err.message);
+      }
+    });
+  </script>
+</body>
+</html>

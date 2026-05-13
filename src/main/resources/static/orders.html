@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Your Orders</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="/">📚 Virtual Bookstore</a></div>
+  <div class="actions">
+    <span id="userEmail"></span>
+    <a href="/login.html" id="loginLink">Login</a>
+    <a href="/signup.html" id="signupLink">Signup</a>
+    <a href="#" id="logoutLink" style="display:none;">Logout</a>
+    <a href="/cart.html" class="cart-link">🛒 Cart (<span id="cartCount">0</span>)</a>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Your Orders</h2>
+  <div id="ordersContainer"></div>
+</main>
+
+<script src="/script.js"></script>
+
+<script>
+async function loadOrders() {
+    try {
+        const res = await fetch(`${API_BASE}/books/orders`, {
+            headers: {
+                "Authorization": "Bearer " + getToken()
+            }
+        });
+
+        if (!res.ok) {
+            document.getElementById("ordersContainer").innerHTML =
+                "<p>No orders found.</p>";
+            return;
+        }
+
+        const orders = await res.json();
+        renderOrders(orders);
+    } catch (e) {
+        console.error(e);
+        document.getElementById("ordersContainer").innerHTML =
+            "<p>Error loading orders.</p>";
+    }
+}
+
+function renderOrders(list) {
+    const container = document.getElementById("ordersContainer");
+
+    if (!list.length) {
+        container.innerHTML = "<p>You have no orders yet.</p>";
+        return;
+    }
+
+    container.innerHTML = list.map(order => `
+        <div class="order-card">
+            <h3>Order #${order.id}</h3>
+            <p><strong>Date:</strong> ${order.orderdate.replace("T", " ")}</p>
+            <p><strong>Total Amount:</strong> ₹${order.totalAmount.toFixed(2)}</p>
+            
+            <h4>Items:</h4>
+            <ul>
+                ${order.items.map(item => `
+                    <li>
+                      ${item.bookTitle} - Qty: ${item.quantity} - ₹${item.price}
+                    </li>
+                `).join("")}
+            </ul>
+        </div>
+    `).join("");
+}
+
+updateAuthUI();
+loadOrders();
+loadCartCount();
+</script>
+
+</body>
+</html>

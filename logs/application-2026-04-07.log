@@ -1,0 +1,108 @@
+2026-04-07 09:53:31 INFO  c.s.V.VirtualBookshopApplication - Starting VirtualBookshopApplication using Java 17.0.0.1 with PID 7760 (D:\SpringBoot_Projects\VirtualBookshop\target\classes started by sam in D:\SpringBoot_Projects\VirtualBookshop)
+2026-04-07 09:53:31 INFO  c.s.V.VirtualBookshopApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-07 09:53:31 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 09:53:31 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+2026-04-07 09:53:32 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-07 09:53:32 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-07 09:53:32 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-07 09:53:32 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.50]
+2026-04-07 09:53:32 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-07 09:53:32 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 842 ms
+2026-04-07 09:53:32 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07 09:53:32 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.39.Final
+2026-04-07 09:53:32 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-07 09:53:32 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 09:53:32 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-07 09:53:32 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@542ff147
+2026-04-07 09:53:32 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-07 09:53:32 WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07 09:53:32 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-07 09:53:33 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 09:53:33 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 09:53:33 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07 09:53:33 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-04-07 09:53:33 WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: bc73e767-686c-4e40-b595-7a5eb58549f7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-07 09:53:33 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-07 09:53:33 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-07 09:53:33 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-07 09:53:33 INFO  c.s.V.VirtualBookshopApplication - Started VirtualBookshopApplication in 2.928 seconds (process running for 3.166)
+2026-04-07 09:54:07 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 09:54:07 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-07 09:54:07 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-07 09:54:07 INFO  c.s.V.repository.service.BookService - BookService loaded successfully
+2026-04-07 09:54:08 WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [562] milliseconds.
+2026-04-07 09:54:44 INFO  c.s.V.repository.service.BookService - BookService loaded successfully
+2026-04-07 10:53:35 INFO  c.s.V.repository.service.BookService - BookService loaded successfully
+2026-04-07 11:32:05 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 11:32:05 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-07 11:32:05 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 11:32:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-07 11:32:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-07 11:38:52 INFO  c.s.V.VirtualBookshopApplication - Starting VirtualBookshopApplication using Java 17.0.0.1 with PID 19168 (D:\SpringBoot_Projects\VirtualBookshop\target\classes started by sam in D:\SpringBoot_Projects\VirtualBookshop)
+2026-04-07 11:38:52 INFO  c.s.V.VirtualBookshopApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-07 11:38:52 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 11:38:52 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 4 JPA repository interfaces.
+2026-04-07 11:38:52 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-07 11:38:52 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-07 11:38:52 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-07 11:38:52 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.50]
+2026-04-07 11:38:53 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-07 11:38:53 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 824 ms
+2026-04-07 11:38:53 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07 11:38:53 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.39.Final
+2026-04-07 11:38:53 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-07 11:38:53 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 11:38:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-07 11:38:53 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2c3f43d1
+2026-04-07 11:38:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-07 11:38:53 WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-07 11:38:53 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-07 11:38:53 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 11:38:53 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 11:38:54 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-07 11:38:54 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-04-07 11:38:54 WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 74b179b6-13a8-46e9-868a-68f8637742c2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-07 11:38:54 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-07 11:38:54 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-07 11:38:54 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-07 11:38:54 INFO  c.s.V.VirtualBookshopApplication - Started VirtualBookshopApplication in 2.635 seconds (process running for 2.863)
+2026-04-07 11:38:58 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 11:38:58 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-07 11:38:58 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2026-04-07 11:38:58 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:39:09 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:39:24 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:41:06 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:43:09 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:43:29 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:47:57 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:48:15 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:48:26 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 11:49:39 INFO  c.s.V.service.BookService - Buy request received for book id: 2
+2026-04-07 11:49:39 INFO  c.s.V.service.BookService - Book purchased successfully
+2026-04-07 11:51:12 INFO  c.s.V.service.BookService - BookService loaded successfully
+2026-04-07 15:15:47 INFO  c.s.V.service.BookService - BookService loaded successfully

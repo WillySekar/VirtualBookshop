@@ -1,5 +1,6 @@
 <img width="1906" height="455" alt="image" src="https://github.com/user-attachments/assets/60937c95-dba3-434d-b2d3-17600796b712" /># 📚 Virtual Bookstore
-![Uploading image.png…]()
+<img width="1866" height="920" alt="image" src="https://github.com/user-attachments/assets/02189882-91da-456c-924d-81dbaf79efd9" />
+
 
 
 A full-stack **Spring Boot learning project** that simulates an online bookstore where users can browse books, add items to cart, place orders, and manage authentication using JWT.
